@@ -17,8 +17,8 @@ import java.util.Date;
             invoice.print();
 //System.out.println(line);
 //TESTING:
-            line.printLine();
-            line2.printLine();
+            //line.printLine();
+            //line2.printLine();
 
         }
 

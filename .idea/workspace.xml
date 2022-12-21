@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="642be046-1d31-483f-a394-bee38a5a5568" name="Changes" comment="Eric Sans Vidal - exercise started">
+    <list default="true" id="642be046-1d31-483f-a394-bee38a5a5568" name="Changes" comment="Eric Sans Vidal - working on invoice class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Invoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Invoice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
@@ -52,7 +52,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671591030047</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Eric Sans Vidal - working on invoice class">
+      <created>1671592121332</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1671592121332</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -68,6 +75,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Eric Sans Vidal - exercise started" />
-    <option name="LAST_COMMIT_MESSAGE" value="Eric Sans Vidal - exercise started" />
+    <MESSAGE value="Eric Sans Vidal - working on invoice class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Eric Sans Vidal - working on invoice class" />
   </component>
 </project>

@@ -1,4 +1,5 @@
 import java.util.Date;
+import java.util.Calendar;
 
 public class Invoice {
     private InvoiceLine [] lines;
@@ -38,9 +39,41 @@ public class Invoice {
     }
 // FALTE MODIFICAR PER IMPRIMIR-HO TOT BÉ
     public void print(){
+        printTop();
         for (int i=0; i<getLines().length;i++){
             this.lines[i].printLine();
         }
+    }
+
+    private void printTop() {
+        System.out.println("                                                     Invoice number: "+this.invoiceNumber);
+        //System.out.print("                                                     "+
+        //        "                         DATE: ");
+        //System.out.format("%tB %te, %ty%n", this.invoiceDate.getMonth(),this.invoiceDate.getDay(), this.invoiceDate.getYear());
+        System.out.println("                                                                 To: "+this.invoiceTo);
+        System.out.println("                                                            Ship to: "+this.shipTo);
+        System.out.println();
+        System.out.println("----------------------------------------------------------------------------------"+
+                "---------------------------------");
+        System.out.print('|');
+        System.out.print("        SALES PERSON");
+        System.out.print(" | ");
+        System.out.print("        SHIPPING METHOD");
+        System.out.print(" | ");
+        System.out.print("        SHIPPING TERMS");
+        System.out.print(" | ");
+        System.out.print("    DELIVERY DATE");
+        System.out.print(" | ");
+        System.out.print("        PAYMENT TERMS");
+        System.out.print(" | ");
+        System.out.print("    DUE DATE");
+        System.out.print(" | ");
+
+        System.out.println();
+        System.out.println("----------------------------------------------------------------------------------"+
+                "---------------------------------");
+        System.out.println();
+
     }
 
 
