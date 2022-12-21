@@ -21,8 +21,27 @@ public class Invoice {
             this.paymentTerms=paymentTerms;
             this.dueDate=dueDate;
             this.totalDiscount=totalDiscount;
+            this.lines=new InvoiceLine[0];
     }
 
+    public void addInvoiceLine (InvoiceLine addLine){
+        InvoiceLine[] aux = new InvoiceLine[this.lines.length+1];
+        for (int i=0; i<aux.length-1;i++){
+            aux[i]=this.lines[i];
+        }
+        aux[aux.length-1]=addLine;
+        this.lines=aux;
+    }
+
+    public InvoiceLine[] getLines() {
+        return lines;
+    }
+// FALTE MODIFICAR PER IMPRIMIR-HO TOT BÉ
+    public void print(){
+        for (int i=0; i<getLines().length;i++){
+            this.lines[i].printLine();
+        }
+    }
 
 
 }

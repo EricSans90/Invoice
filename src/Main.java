@@ -4,7 +4,7 @@ import java.util.Date;
         public static void main(String[] args) {
             InvoiceLine line = new InvoiceLine(5000, "121-C", "Chairs model Niagara F4", 230.00f, 15.5f);
             InvoiceLine line2 = new InvoiceLine(12, "122-A", "Table model BackBack 3", 290.00f, 10.0f);
-            /*Invoice invoice = new Invoice(1234,
+            Invoice invoice = new Invoice(1234,
                     createDate(2014, 11, 4),
                     "Care plus clinic", "Care plus clinic office", "Peter Minkin",
                     "UPS", "Due on receipt",
@@ -15,8 +15,8 @@ import java.util.Date;
             invoice.addInvoiceLine(line);
             invoice.addInvoiceLine(line2);
             invoice.print();
-//System.out.println(line);*/
-
+//System.out.println(line);
+//TESTING:
             line.printLine();
             line2.printLine();
 
