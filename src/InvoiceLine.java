@@ -31,7 +31,7 @@ public class InvoiceLine {
     }
     public void printQty(){
         //int auxLen = 8-finalSpace(this.qty);
-        int auxLen = 8-Integer.toString(this.qty).length();
+        int auxLen = 8-customFormat("###,###",this.qty).length();
         char [] aux = new char[auxLen];
         for (int i=0; i<auxLen; i++){
             aux[i]=' ';
@@ -75,7 +75,7 @@ public class InvoiceLine {
         System.out.print(" | ");
     }
     public void printUnitPrice(){
-        int auxLen = 10-Float.toString(this.unitPrice).length();
+        int auxLen = 10-customFormat("$###,###.00",this.unitPrice).length();
         char [] aux = new char[auxLen];
         for (int i=0; i<auxLen; i++){
             aux[i]=' ';
@@ -97,7 +97,7 @@ public class InvoiceLine {
         System.out.print(" | ");
     }
     public void printLineTotal(){
-        int auxLen = 14-Float.toString(this.lineTotal).length();
+        int auxLen = 14-customFormat("$###,###.00",this.lineTotal).length();
         char [] aux = new char[auxLen];
         for (int i=0; i<auxLen; i++){
             aux[i]=' ';
