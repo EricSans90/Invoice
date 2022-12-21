@@ -2,6 +2,7 @@ import java.util.Calendar;
 import java.util.Date;
     public class Main {
         public static void main(String[] args) {
+
             InvoiceLine line = new InvoiceLine(5000, "121-C", "Chairs model Niagara F4", 230.00f, 15.5f);
             InvoiceLine line2 = new InvoiceLine(12, "122-A", "Table model BackBack 3", 290.00f, 10.0f);
             Invoice invoice = new Invoice(1234,

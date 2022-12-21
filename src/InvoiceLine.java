@@ -30,6 +30,7 @@ public class InvoiceLine {
         System.out.println();
     }
     public void printQty(){
+        //int auxLen = 8-finalSpace(this.qty);
         int auxLen = 8-Integer.toString(this.qty).length();
         char [] aux = new char[auxLen];
         for (int i=0; i<auxLen; i++){
@@ -39,8 +40,17 @@ public class InvoiceLine {
         System.out.print('|');
         System.out.print(aux2);
         System.out.print(customFormat("###,###",this.qty));
+        // customFormat("###,###",this.qty).length();
+
+
         System.out.print(" | ");
     }
+
+    private int finalSpace(int qty) {
+
+        return qty;
+    }
+
     public void printItem(){
         int auxLen = 8-this.itemName.length();
         char [] aux = new char[auxLen];
