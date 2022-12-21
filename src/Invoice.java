@@ -40,9 +40,23 @@ public class Invoice {
     public void print(){
         printTop();
         printInfoTop();
+        printDash2();
+        printLineHeader();
+        printDash2();
         for (int i=0; i<getLines().length;i++){
+            //System.out.print("      ");
+            InvoiceLine.addSpaces(12);
             this.lines[i].printLine();
         }
+        printDash2();
+        printTotalDiscountLine();
+
+    }
+
+    private void printDash2() {
+        InvoiceLine.addSpaces(12);
+        System.out.println("----------------------------------------------------------------------------------"+
+                "------------------");
     }
 
     private void printTop() {
@@ -53,7 +67,7 @@ public class Invoice {
         System.out.println("                                                                 To: "+this.invoiceTo);
         System.out.println("                                                            Ship to: "+this.shipTo);
         System.out.println();
-        printDash();
+        printDash1();
         System.out.print('|');
         System.out.print("        SALES PERSON");
         System.out.print(" | ");
@@ -68,7 +82,7 @@ public class Invoice {
         System.out.print("    DUE DATE");
         System.out.print(" | ");
         System.out.println();
-        printDash();
+        printDash1();
 
     }
     private void printInfoTop() {
@@ -80,11 +94,18 @@ public class Invoice {
         printDueDate();
 
         System.out.println();
-        printDash();
+        printDash1();
         System.out.println();
     }
+    private void printLineHeader() {
+        InvoiceLine.addSpaces(12);
+        System.out.println("|     QTY |   Item # |                      DESCRIPTION | UNIT PRICE |   DISCOUNT |     LINE TOTAL |");
+    }
+    private void printTotalDiscountLine() {
+        System.out.print("                                                                  TOTAL DISCOUNT | ");
+    }
 
-    public void printDash(){
+    public void printDash1(){
         System.out.println("----------------------------------------------------------------------------------"+
                 "------------------------------------------------------");
     }
@@ -144,6 +165,14 @@ public class Invoice {
         //System.out.print(this.deliveryDate);
         System.out.format("%tD", this.dueDate);
         System.out.print(" | ");
+    }
+
+    public float totalWithoutDisc() {
+        float totalNoDisc=0;
+        for (int i = 0; i < getLines().length; i++) {
+            totalNoDisc += getLines()[i].getLineTotal();
+        }
+        return totalNoDisc;
     }
 
 }

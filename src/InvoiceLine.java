@@ -45,10 +45,13 @@ public class InvoiceLine {
 
         System.out.print(" | ");
     }
-
-    private int finalSpace(int qty) {
-
-        return qty;
+    public static void addSpaces(int numberSpaces){
+        char [] aux = new char[numberSpaces];
+        for (int i=0; i<numberSpaces; i++){
+            aux[i]=' ';
+        }
+        String aux2 = new String(aux);
+        System.out.print(aux2);
     }
 
     public void printItem(){
@@ -97,14 +100,15 @@ public class InvoiceLine {
         System.out.print(" | ");
     }
     public void printLineTotal(){
-        int auxLen = 14-customFormat("$###,###.00",this.lineTotal).length();
+        String formattedValue = customFormat("$###,###.00",this.lineTotal);
+        int auxLen = 14-formattedValue.length();
         char [] aux = new char[auxLen];
         for (int i=0; i<auxLen; i++){
             aux[i]=' ';
         }
         String aux2 = new String(aux);
         System.out.print(aux2);
-        System.out.print(customFormat("$###,###.00",this.lineTotal));
+        System.out.print(formattedValue);
         System.out.print(" | ");
     }
 
