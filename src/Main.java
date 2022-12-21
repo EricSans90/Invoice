@@ -1,5 +1,8 @@
 import java.util.Calendar;
 import java.util.Date;
+//EXERCISE
+//Create a Project Invoices with the classes InvoiceLine, Invoice and Main to implement a model to store
+//Invoices. The Invoice class will have a print() method to print the formatted invoice. This is the Main class:
     public class Main {
         public static void main(String[] args) {
 
@@ -16,10 +19,6 @@ import java.util.Date;
             invoice.addInvoiceLine(line);
             invoice.addInvoiceLine(line2);
             invoice.print();
-//System.out.println(line);
-//TESTING:
-            //line.printLine();
-            //line2.printLine();
 
         }
 
@@ -34,8 +33,6 @@ import java.util.Date;
         }
 
     }
-    //EXERCISE
-    //Create a Project Invoices with the classes InvoiceLine, Invoice and Main to implement a model to store
-    //Invoices. The Invoice class will have a print() method to print the formatted invoice. This is the Main class:
+
 
 

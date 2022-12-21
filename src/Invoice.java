@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 import java.util.Date;
 
 public class Invoice {
@@ -50,13 +51,31 @@ public class Invoice {
         }
         printDash2();
         printTotalDiscountLine();
+        printDash3();
+        printSubTotal();
+        printDash4();
+        printGST();
+        printDash4();
+        printTotal();
+        printDash4();
 
     }
-
+    public void printDash1(){
+        System.out.println("----------------------------------------------------------------------------------"+
+                "------------------------------------------------------");
+    }
     private void printDash2() {
         InvoiceLine.addSpaces(12);
         System.out.println("----------------------------------------------------------------------------------"+
                 "------------------");
+    }
+    private void printDash3() {
+        InvoiceLine.addSpaces(81);
+        System.out.println("-------------------------------");
+    }
+    private void printDash4() {
+        InvoiceLine.addSpaces(94);
+        System.out.println("------------------");
     }
 
     private void printTop() {
@@ -103,12 +122,80 @@ public class Invoice {
     }
     private void printTotalDiscountLine() {
         System.out.print("                                                                  TOTAL DISCOUNT | ");
+        String formattedValue1 = customFormat("##.00%",this.totalDiscount/100);
+        int auxLen = 10-formattedValue1.length();
+        char [] aux = new char[auxLen];
+        for (int i=0; i<auxLen; i++){
+            aux[i]=' ';
+        }
+        String aux2 = new String(aux);
+        System.out.print(aux2);
+        System.out.print(formattedValue1);
+        System.out.print(" | ");
+
+        String formattedValue2 = customFormat("$###,###.00",totalWithoutDisc()*this.totalDiscount/100);
+        int auxLen2 = 14-formattedValue2.length();
+        char [] aux3 = new char[auxLen2];
+        for (int j=0; j<auxLen2; j++){
+            aux3[j]=' ';
+        }
+        String aux4 = new String(aux3);
+        System.out.print(aux4);
+        System.out.print(formattedValue2);
+        System.out.print(" | ");
+        System.out.println();
+
+    }
+    private void printSubTotal() {
+        System.out.print("                                                                                     SUBTOTAL | ");
+        String formattedValue2 = customFormat("$###,###.00",totalWithoutDisc()-totalWithoutDisc()*this.totalDiscount/100);
+        int auxLen2 = 14-formattedValue2.length();
+        char [] aux3 = new char[auxLen2];
+        for (int j=0; j<auxLen2; j++){
+            aux3[j]=' ';
+        }
+        String aux4 = new String(aux3);
+        System.out.print(aux4);
+        System.out.print(formattedValue2);
+        System.out.print(" | ");
+        System.out.println();
+    }
+    private void printGST() {
+        System.out.print("                                                                                          GST | ");
+        String formattedValue2 = customFormat("$###,###.00",
+                (totalWithoutDisc() - ((totalWithoutDisc() * this.totalDiscount) / 100)) * 0.21);
+        int auxLen2 = 14-formattedValue2.length();
+        char [] aux3 = new char[auxLen2];
+        for (int j=0; j<auxLen2; j++){
+            aux3[j]=' ';
+        }
+        String aux4 = new String(aux3);
+        System.out.print(aux4);
+        System.out.print(formattedValue2);
+        System.out.print(" | ");
+        System.out.println();
     }
 
-    public void printDash1(){
-        System.out.println("----------------------------------------------------------------------------------"+
-                "------------------------------------------------------");
+    private void printTotal() {
+        System.out.print("                                                                                        TOTAL | ");
+        String formattedValue2 = customFormat("$###,###.00",totalWithoutDisc()*(1-this.totalDiscount/100)*1.21);
+        int auxLen2 = 14-formattedValue2.length();
+        char [] aux3 = new char[auxLen2];
+        for (int j=0; j<auxLen2; j++){
+            aux3[j]=' ';
+        }
+        String aux4 = new String(aux3);
+        System.out.print(aux4);
+        System.out.print(formattedValue2);
+        System.out.print(" | ");
+        System.out.println();
     }
+    public static String customFormat(String pattern, double value){
+        DecimalFormat myFormatter = new DecimalFormat(pattern);
+        String output = myFormatter.format(value);
+        return output;
+    }
+
     public void printSalesPerson(){
         System.out.print('|');
         //PRINT SALES PERSON
